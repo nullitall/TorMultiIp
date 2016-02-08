@@ -41,7 +41,7 @@ do
 	echo "Running: tor --RunAsDaemon 1 --CookieAuthentication 0 --HashedControlPassword \"\" --ControlPort $control_port --PidFile tor$i.pid --SocksPort $socks_port --DataDirectory data/tor$i"
 
 	tor --RunAsDaemon 1 --CookieAuthentication 0 --HashedControlPassword "" --ControlPort $control_port --PidFile tor$i.pid --SocksPort $socks_port --DataDirectory data/tor$i
-	python getIp.py $socks_port
+	python getIp.py $socks_port >> portLogs.txt
 	./createLog.sh  $socks_port $control_port	
 done
 
