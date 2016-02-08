@@ -7,10 +7,11 @@
 
 base_socks_port=9050
 base_control_port=15000
+dir_data="/tmp/multitor.$$"
 
 # Create data directory if it doesn't exist
-if [ ! -d "data" ]; then
-	mkdir "data"
+if [ ! -d $dir_data ]; then
+	mkdir $dir_data
 fi
 
 file="portLogs.txt"
@@ -44,6 +45,7 @@ do
 	./createLog.sh  $socks_port $control_port	
 done
 
+rm -rf $dir_data
 
 
  
